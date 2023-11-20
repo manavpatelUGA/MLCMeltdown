@@ -15,15 +15,19 @@ const HomePage = () => {
       
         const handleReserve = () => {
           setIsReserved(true);
+
           // Additional logic to handle reservation...
         };
       
         return (
           <div className={`room ${isReserved ? 'reserved' : ''}`}>
             <span>Room {number}</span>
+            <Link to='/create-ticket'>
             <button onClick={handleReserve} disabled={isReserved}>
               {isReserved ? 'Reserved' : 'Reserve'}
             </button>
+            </Link>
+
           </div>
         );
       };

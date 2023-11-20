@@ -103,7 +103,7 @@ const TicketForm = () => {
                 </div>
             <div className='new-ticket_actions'>
                 <div className='new-ticket_cancel'>
-                    <Link to='/'>
+                    <Link to='/Home-Page'>
                         <button>Cancel</button>
                     </Link>
                 </div>
