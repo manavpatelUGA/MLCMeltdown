@@ -15,8 +15,6 @@ const HomePage = () => {
       
         const handleReserve = () => {
           setIsReserved(true);
-
-          // Additional logic to handle reservation...
         };
       
         return (

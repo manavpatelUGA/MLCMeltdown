@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 import './TicketForm.css';
 import UsersList from './UsersList';
 
-const TicketForm = () => {
+const TicketForm = (props) => {
     // Initialize state with an empty array or with existing user data
     const [usersList, setUsersList] = useState([]);
 
     // Function to add a new user to the usersList
-    const addUserHandler = (newUser) => {
+    const addUserHandler = (reservationDetails) => {
         setUsersList((prevUsersList) => {
-            return [newUser, ...prevUsersList];
+            return [reservationDetails, ...prevUsersList];
         });
-    };
+    };    
     const [enteredRoomNum, setRoomNum] = useState('');
     const [enteredPeople, setPeople] = useState('');
     const [enteredStartTime, setStartTime] = useState('');
@@ -35,25 +35,70 @@ const TicketForm = () => {
     const roomVolumeHandler = (event) => {
         roomVolume = event.target.value;
     };
-
+    
     const submitHandler = (event) => {
         event.preventDefault();
-
-        const ticketInfo = {
+    
+        const reservationDetails = {
             roomNum: enteredRoomNum,
             people: enteredPeople,
             startTime: enteredStartTime,
             endTime: enteredEndTime,
             roomVolume: roomVolume
-        }
-        console.log(ticketInfo);
+        };
+    
+        addUserHandler(reservationDetails);
+    
+        // Reset the form fields
         setRoomNum('');
         setPeople('');
         setStartTime('');
         setEndTime('');
-        document.getElementById('quiet').checked = false;
-        document.getElementById('loud').checked = false;
+        // No need to reset roomVolume since it's not part of the state
     };
+    
+    const ReservationCard = ({ reservation }) => (
+        <div className="reservation-card">
+            <div>
+                <p>Room Number: {reservation.roomNum}</p>
+                <p>People: {reservation.people}</p>
+                <p>Start Time: {reservation.startTime}</p>
+                <p>End Time: {reservation.endTime}</p>
+            </div>
+        </div>
+    );
+    
+    const UsersList = ({ users }) => (
+        <section>
+            {users.map((reservation, index) => (
+                <ReservationCard key={index} reservation={reservation} />
+            ))}
+        </section>
+    );
+    
+
+    // const submitHandler = (event) => {
+    //     event.preventDefault();
+
+    //     const ticketInfo = {
+  
+    //         roomNum: enteredRoomNum,
+    //         people: enteredPeople,
+    //         startTime: enteredStartTime,
+    //         endTime: enteredEndTime,
+    //         roomVolume: roomVolume
+      
+
+    //     }
+
+    //     //console.log(ticketInfo);
+    //     setRoomNum('');
+    //     setPeople('');
+    //     setStartTime('');
+    //     setEndTime('');
+    //     document.getElementById('quiet').checked = false;
+    //     document.getElementById('loud').checked = false;
+    // };
 
     return (
         <div>
@@ -118,7 +163,7 @@ const TicketForm = () => {
                     </Link>
                 </div>
                 <div className='new-ticket_confirm'>
-                    <button type='submit' onClick={addUserHandler}>Confirm</button>
+                    <button type='submit'>Confirm</button>
                 </div>
             </div>
         </form>
