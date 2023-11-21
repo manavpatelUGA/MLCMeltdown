@@ -2,10 +2,35 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './TicketForm.css';
 import UsersList from './UsersList';
+import logo from './logo.jpg'
 
 const TicketForm = (props) => {
     // Initialize state with an empty array or with existing user data
-    const [usersList, setUsersList] = useState([]);
+    const [usersList, setUsersList] = useState([
+        {
+          roomNum: '101',
+          people: '4',
+          startTime: '09:00',
+          endTime: '11:00',
+          roomVolume: 'quiet'
+        },
+        {
+          roomNum: '102',
+          people: '2',
+          startTime: '12:00',
+          endTime: '13:00',
+          roomVolume: 'loud'
+        },
+        {
+            roomNum: '103',
+            people: '5',
+            startTime: '09:05',
+            endTime: '11:30',
+            roomVolume: 'quiet'
+          },
+        // ... more premade reservations
+      ]);
+      
 
     // Function to add a new user to the usersList
     const addUserHandler = (reservationDetails) => {
@@ -60,10 +85,13 @@ const TicketForm = (props) => {
     const ReservationCard = ({ reservation }) => (
         <div className="reservation-card">
             <div>
-                <p>Room Number: {reservation.roomNum}</p>
-                <p>People: {reservation.people}</p>
-                <p>Start Time: {reservation.startTime}</p>
-                <p>End Time: {reservation.endTime}</p>
+                <h2>Room Number: {reservation.roomNum}</h2>
+                <h3>People: {reservation.people}</h3>
+                <h3>Start Time: {reservation.startTime}</h3>
+                <h3>End Time: {reservation.endTime}</h3>
+            </div>
+            <div>
+                <img src = {logo} /> 
             </div>
         </div>
     );
