@@ -1,8 +1,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './TicketForm.css';
+import UsersList from './UsersList';
 
 const TicketForm = () => {
+    // Initialize state with an empty array or with existing user data
+    const [usersList, setUsersList] = useState([]);
+
+    // Function to add a new user to the usersList
+    const addUserHandler = (newUser) => {
+        setUsersList((prevUsersList) => {
+            return [newUser, ...prevUsersList];
+        });
+    };
     const [enteredRoomNum, setRoomNum] = useState('');
     const [enteredPeople, setPeople] = useState('');
     const [enteredStartTime, setStartTime] = useState('');
@@ -108,10 +118,11 @@ const TicketForm = () => {
                     </Link>
                 </div>
                 <div className='new-ticket_confirm'>
-                    <button type='submit'>Confirm</button>
+                    <button type='submit' onClick={addUserHandler}>Confirm</button>
                 </div>
             </div>
         </form>
+        <UsersList users={usersList} />
         </div>
     );
 };
