@@ -11,8 +11,8 @@ const UsersList = (props) => {
                 {props.users.map((user) => (
                     <User
                         key = {user.id}
-                        // roomNumber = {enteredRoomNum}
-                        // people = {enteredPeople}
+                        roomNumber = {user.enteredRoomNum}
+                        people = {user.enteredPeople}
                         age = {user.age}
                         major = {user.major}
                     />
