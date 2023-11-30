@@ -195,7 +195,7 @@ const TicketForm = (props) => {
                 </div>
             </div>
         </form>
-        <UsersList users={usersList} />
+        <UsersList users={usersList} style={{width: '100px'}} />
         </div>
     );
 };
