@@ -40,4 +40,11 @@
     /* -ms-transform: translateY(-50%); */
     /* transform: translateY(-50%); */
   }
+
+  footer {
+    color: #BA0C2F;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
   

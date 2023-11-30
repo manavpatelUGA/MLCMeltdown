@@ -130,7 +130,7 @@ const Signup = () => {
         />
         {!passwordsMatch && <p style={{ color: 'red' }}>Passwords do not match</p>}
         <Link to='/'>
-        <button type="submit" disabled={isSubmitDisabled} style={{ backgroundColor: isSubmitDisabled ? 'grey' : 'red' }}>
+        <button type="submit" disabled={isSubmitDisabled} style={{ backgroundColor: isSubmitDisabled ? 'grey' : '#BA0C2F' }}>
             Sign Up
           </button>
         </Link>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './HomePage.css';
 
+
 const HomePage = () => {
     const Floor = ({ number, children }) => (
         <div className="floor">
@@ -58,8 +59,14 @@ const HomePage = () => {
           <Room number="424" />
           <Room number="425" />
         </Floor>
-        <SignOutButton />
+        {/* <SignOutButton /> */}
+        <footer>
+          <Link to="/">
+            <button>Sign out</button>
+          </Link>
+        </footer>
       </div>
+      
     );
   }
   export default HomePage;
