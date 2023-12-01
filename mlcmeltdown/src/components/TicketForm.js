@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './TicketForm.css';
 import UsersList from './UsersList';
 import logo from './logo.jpg'
+import axios from 'axios'
 
 const TicketForm = (props) => {
     // Initialize state with an empty array or with existing user data
@@ -66,19 +67,26 @@ const TicketForm = (props) => {
     
         const reservationDetails = {
             roomNum: enteredRoomNum,
-            people: enteredPeople,
+            peopleNum: enteredPeople,
             startTime: enteredStartTime,
             endTime: enteredEndTime,
             roomVolume: roomVolume
         };
+
+        axios.post('http://localhost:12739/tickets', reservationDetails)
+        .then((res) => {
+            // Reset the form fields
+            setRoomNum('');
+            setPeople('');
+            setStartTime('');
+            setEndTime('');
+        })
+        .catch((err) => {
+            console.log('error in TicketForm');
+        });
     
         addUserHandler(reservationDetails);
     
-        // Reset the form fields
-        setRoomNum('');
-        setPeople('');
-        setStartTime('');
-        setEndTime('');
         // No need to reset roomVolume since it's not part of the state
     };
     
