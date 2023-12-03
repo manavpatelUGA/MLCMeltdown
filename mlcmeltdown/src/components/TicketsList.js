@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Ticket from './Ticket'; // Assuming this is the path to your Ticket component
+import Ticket from './Ticket'; 
 import EditView from './EditView';
 
 const UsersList = () => {
@@ -9,6 +9,7 @@ const UsersList = () => {
   // var ticketId;
   useEffect(() => {
     // Function to fetch tickets data
+    
     const fetchTickets = async () => {
       try {
         const response = await axios.get('http://localhost:12739/tickets'); // Replace with your actual URL
@@ -21,9 +22,19 @@ const UsersList = () => {
     fetchTickets(); // Call the function to fetch data
   }, []); // Empty dependency array means this effect runs once on mount
 
+  const getTicket = async (id) => {
+    try {
+      const response = await axios.get(`http://localhost:12739/tickets/${id}`);
+      console.log(response.data);
+      return response.data; // This will return the data of the single ticket
+    } catch (error) {
+      console.error('Error fetching the ticket data:', error);
+    }
+  };
+
   const deleteTicket = async (id) => {
     try {
-      await axios.delete(`http://localhost:12739/tickets/${id}`); // Replace with your actual URL to delete the ticket
+      await axios.delete(`http://localhost:12739/tickets/${id}`); 
       setTickets(tickets.filter(ticket => ticket._id !== id));
     } catch (error) {
       console.error('Error deleting the ticket:', error);
@@ -46,7 +57,7 @@ const UsersList = () => {
             endTime={ticket.endTime}
             roomVolume={ticket.roomVolume}
             onDelete={() => deleteTicket(ticket._id)}
-            onEdit={()=> storeId(ticket._id)}
+            onEdit={()=> getTicket(ticket._id)}
           />
         ))}
       </ul>
