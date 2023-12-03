@@ -1,9 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './HomePage.css';
+import TicketsList from './TicketsList';
+import axios from 'axios';
 
 
 const HomePage = () => {
+    // Initialize state with an empty array
+    const [ticketList, setTicketList] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://localhost:12739/tickets')
+        .then((res) => {
+            setTicketList(res.data);
+        })
+        .catch((err) => {
+            console.log('error in TicketForm get');
+        });
+    }, []);
+
     const Floor = ({ number, children }) => (
         <div className="floor">
           <h2>Floor {number}</h2>
@@ -40,6 +55,7 @@ const HomePage = () => {
         );
       };
     return (
+      <div>
       <div className="app">
         {/* <Header title="MLC Meltdown" /> */}
 
@@ -66,7 +82,8 @@ const HomePage = () => {
           </Link>
         </footer>
       </div>
-      
+      <TicketsList tickets={ticketList} style={{width: '100px'}} />
+      </div>
     );
   }
   export default HomePage;
