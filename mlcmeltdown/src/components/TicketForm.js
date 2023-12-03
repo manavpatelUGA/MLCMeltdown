@@ -161,9 +161,9 @@ const TicketForm = (props) => {
                     </Link>
                 </div>
                 <div className='new-ticket_confirm'>
-                    <Link to='/Home-Page'>
+                    
                         <button type='submit'>Confirm</button>
-                    </Link>
+                  
                 </div>
             </div>
         </form>
