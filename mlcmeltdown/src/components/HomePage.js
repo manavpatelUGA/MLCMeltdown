@@ -75,12 +75,6 @@ const HomePage = () => {
           <Room number="424" />
           <Room number="425" />
         </Floor>
-        {/* <SignOutButton /> */}
-        {/* <footer>
-          <Link to="/">
-            <button>Sign out</button>
-          </Link>
-        </footer> */}
       </div>
       <TicketsList tickets={ticketList} style={{width: '100px'}} />
       <footer>
@@ -92,38 +86,6 @@ const HomePage = () => {
     );
   }
   export default HomePage;
-//   function Floor({ number, children }) {
-//     return (
-//       <div className="floor">
-//         <h2>Floor {number}</h2>
-//         {children}
-//       </div>
-//     );
-//   }
-  
-//   function Room({ number }) {
-//     const [isReserved, setIsReserved] = React.useState(false);
-  
-//     function handleReserve() {
-//       setIsReserved(true);
-//       // Additional logic to handle reservation...
-//     }
-  
-//     return (
-//       <div className={`room ${isReserved ? 'reserved' : ''}`}>
-//         <span>Room {number}</span>
-//         <button onClick={handleReserve} disabled={isReserved}>
-//           {isReserved ? 'Reserved' : 'Reserve'}
-//         </button>
-//       </div>
-//     );
-//   }
-  
-//   function SignOutButton() {
-//     // Logic for signing out...
-//     return (
-//       <button className="sign-out">Sign Out</button>
-//     );
-//   }
+
   
 

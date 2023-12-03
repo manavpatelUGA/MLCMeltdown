@@ -97,7 +97,7 @@ const TicketForm = (props) => {
     return (
         <div>
             <header className='formHeader'>
-                Change a reservation
+                Reserve a Room
             </header>
         <form onSubmit={submitHandler}>
             <div className='new-ticket_controls'>
@@ -161,7 +161,9 @@ const TicketForm = (props) => {
                     </Link>
                 </div>
                 <div className='new-ticket_confirm'>
-                    <button type='submit'>Confirm</button>
+                    <Link to='/Home-Page'>
+                        <button type='submit'>Confirm</button>
+                    </Link>
                 </div>
             </div>
         </form>
