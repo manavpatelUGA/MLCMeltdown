@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 // import ticketId from './TicketsList.js'
 
 const Ticket = props => {
-    const id = props.key;
-    
+    const id = props.getId;
     return (
         <li className="reservation-card">
             <div>

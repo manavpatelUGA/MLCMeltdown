@@ -25,8 +25,8 @@ const UsersList = () => {
   const getTicket = async (id) => {
     try {
       const response = await axios.get(`http://localhost:12739/tickets/${id}`);
-      console.log(response.data);
-      return response.data; // This will return the data of the single ticket
+      // console.log(response.data);
+      return response.data._id; // This will return the data of the single ticket
     } catch (error) {
       console.error('Error fetching the ticket data:', error);
     }
@@ -58,6 +58,7 @@ const UsersList = () => {
             roomVolume={ticket.roomVolume}
             onDelete={() => deleteTicket(ticket._id)}
             onEdit={()=> getTicket(ticket._id)}
+            getId= {ticket._id}
           />
         ))}
       </ul>
