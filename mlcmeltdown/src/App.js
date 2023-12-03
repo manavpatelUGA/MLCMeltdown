@@ -5,7 +5,7 @@ import HomePage from './components/HomePage';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import './App.css';
-import EditView from './components/EditView';
+
 
 function App() {
   return (
@@ -15,7 +15,6 @@ function App() {
         <Route path = '/Home-Page' element = {<HomePage />} />
         <Route path='/create-ticket' element={<TicketForm />} />
         <Route path='/signup' element={<Signup/>} />
-        <Route path="/edit/:id" component={<EditView/>} />
       </Routes>
     </Router>
   );

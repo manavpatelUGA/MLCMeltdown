@@ -4,7 +4,7 @@ import logo from './logo.jpg'
 import { Link } from 'react-router-dom';
 
 const Ticket = props => {
-    return (    
+    return (
         <li className="reservation-card">
             <div>
                 <h2>Room Number: {props.roomNum}</h2>
@@ -14,11 +14,11 @@ const Ticket = props => {
                 <h3>Room Volume: {props.roomVolume}</h3>
             </div>
             <div>
-                <img src = {logo} alt={'logo'}/> 
+                <img src={logo} alt={'logo'} />
             </div>
             <Link to="/EditView">
-            <button>Edit</button>
-          </Link>
+                <button>Edit</button>
+            </Link>
         </li>
     )
 }

@@ -62,7 +62,7 @@ const TicketForm = (props) => {
             setStartTime('');
             setEndTime('');
             document.getElementById('quiet').checked = false;
-            document.getElementById('loud').checked = false;
+            document.getElementById('loud').checked = false; 
         })
         .catch((err) => {
             console.log('error in TicketForm post');
