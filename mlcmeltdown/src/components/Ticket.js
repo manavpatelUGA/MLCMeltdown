@@ -2,8 +2,11 @@ import React from 'react';
 import './Ticket.css';
 import logo from './logo.jpg'
 import { Link } from 'react-router-dom';
+// import ticketId from './TicketsList.js'
 
 const Ticket = props => {
+    const id = props.key;
+    
     return (
         <li className="reservation-card">
             <div>
@@ -16,8 +19,8 @@ const Ticket = props => {
             <div>
                 <img src={logo} alt={'logo'} />
             </div>
-            <Link to="/EditView">
-                <button>Edit</button>
+            <Link to={`/EditView/${id}`}>
+                <button onClick={props.onEdit}>Edit</button>
             </Link>
             <button onClick={props.onDelete}>Delete</button>
         </li>
