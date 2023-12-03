@@ -19,6 +19,7 @@ const Ticket = props => {
             <Link to="/EditView">
                 <button>Edit</button>
             </Link>
+            <button onClick={props.onDelete}>Delete</button>
         </li>
     )
 }

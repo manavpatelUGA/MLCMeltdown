@@ -19,6 +19,16 @@ const UsersList = () => {
     fetchTickets(); // Call the function to fetch data
   }, []); // Empty dependency array means this effect runs once on mount
 
+  const deleteTicket = async (id) => {
+    try {
+      await axios.delete(`http://localhost:12739/tickets/${id}`); // Replace with your actual URL to delete the ticket
+      setTickets(tickets.filter(ticket => ticket._id !== id));
+    } catch (error) {
+      console.error('Error deleting the ticket:', error);
+    }
+  };
+  
+
   return (
     <ul>
       {tickets.map((ticket) => (
@@ -28,7 +38,8 @@ const UsersList = () => {
           peopleNum={ticket.peopleNum}
           startTime={ticket.startTime}
           endTime={ticket.endTime}
-          roomVolume={ticket.roomVolume || 'Not specified'}
+          roomVolume={ticket.roomVolume}
+          onDelete={() => deleteTicket(ticket._id)}
         />
       ))}
     </ul>
