@@ -62,7 +62,7 @@ const UsersList = () => {
           />
         ))}
       </ul>
-      <EditView ticketId={ticketId} />
+      {/* <EditView ticketId={ticketId} /> */}
     </div>
     
   );

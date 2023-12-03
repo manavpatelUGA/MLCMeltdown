@@ -76,13 +76,18 @@ const HomePage = () => {
           <Room number="425" />
         </Floor>
         {/* <SignOutButton /> */}
-        <footer>
+        {/* <footer>
+          <Link to="/">
+            <button>Sign out</button>
+          </Link>
+        </footer> */}
+      </div>
+      <TicketsList tickets={ticketList} style={{width: '100px'}} />
+      <footer>
           <Link to="/">
             <button>Sign out</button>
           </Link>
         </footer>
-      </div>
-      <TicketsList tickets={ticketList} style={{width: '100px'}} />
       </div>
     );
   }

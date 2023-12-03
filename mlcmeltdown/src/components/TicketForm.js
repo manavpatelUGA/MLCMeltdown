@@ -97,7 +97,7 @@ const TicketForm = (props) => {
     return (
         <div>
             <header className='formHeader'>
-                Reserve a Room
+                Change a reservation
             </header>
         <form onSubmit={submitHandler}>
             <div className='new-ticket_controls'>
@@ -105,6 +105,7 @@ const TicketForm = (props) => {
                     <label>Room #: </label>
                     <input
                         type='text'
+                        required
                         value={enteredRoomNum}
                         onChange={roomNumChangeHandler}
                     />
@@ -113,6 +114,7 @@ const TicketForm = (props) => {
                     <label># of People in Room: </label>
                     <input
                         type='number'
+                        required
                         min='1'
                         step='1'
                         value={enteredPeople}
@@ -123,6 +125,7 @@ const TicketForm = (props) => {
                     <label>Start Time: </label>
                     <input
                         type='time'
+                        required
                         value={enteredStartTime}
                         onChange={startTimeChangeHandler}
                     />
@@ -131,6 +134,7 @@ const TicketForm = (props) => {
                     <label>End Time: </label>
                     <input
                         type='time'
+                        required
                         value={enteredEndTime}
                         onChange={endTimeChangeHandler}
                     />
