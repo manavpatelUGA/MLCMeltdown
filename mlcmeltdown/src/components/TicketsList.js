@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Ticket from './Ticket'; 
 import EditView from './EditView';
+import './TicketsList.css';
 
 const UsersList = () => {
   const [tickets, setTickets] = useState([]); // Initialize tickets state

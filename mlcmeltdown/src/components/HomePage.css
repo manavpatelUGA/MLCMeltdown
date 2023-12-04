@@ -31,15 +31,15 @@
     color: white;
   }
   
+  /*
   .sign-out {
     background-color: white;
     margin: 0;
     position: absolute;
     top: 50%;
     color: black;
-    /* -ms-transform: translateY(-50%); */
-    /* transform: translateY(-50%); */
-  }
+    
+  } */
 
   footer {
     color: #BA0C2F;

@@ -48,9 +48,10 @@ const HomePage = () => {
       
       const SignOutButton = () => {
         // Logic for signing out...
+
         return (
           <Link to = '/'> 
-          <button className="sign-out">Sign Out</button>
+            <button className="sign-out">Sign Out</button>
           </Link>
         );
       };
