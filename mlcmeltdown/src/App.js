@@ -8,6 +8,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import UserContext from './context/UserContext';
 import axios from 'axios';
+import EditView from './components/EditView';
 
 function App() {
   const [userData, setUserData] = useState({
@@ -47,6 +48,7 @@ function App() {
           <Route path = '/Home-Page' element = {<HomePage />} />
           <Route path='/create-ticket' element={<TicketForm />} />
           <Route path='/signup' element={<Signup/>} />
+          <Route path="/EditView/:id" element={<EditView/>} />
         </Routes>
       </Router>
     </UserContext.Provider>
