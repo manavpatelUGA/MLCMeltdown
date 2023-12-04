@@ -48,9 +48,10 @@ const HomePage = () => {
       
       const SignOutButton = () => {
         // Logic for signing out...
+
         return (
           <Link to = '/'> 
-          <button className="sign-out">Sign Out</button>
+            <button className="sign-out">Sign Out</button>
           </Link>
         );
       };
@@ -75,11 +76,8 @@ const HomePage = () => {
           <Room number="424" />
           <Room number="425" />
         </Floor>
-        {/* <SignOutButton /> */}
         <footer>
-          <Link to="/">
-            <button>Sign out</button>
-          </Link>
+          <SignOutButton />
         </footer>
       </div>
       <TicketsList tickets={ticketList} style={{width: '100px'}} />
