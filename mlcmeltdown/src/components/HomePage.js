@@ -3,8 +3,34 @@ import { Link } from 'react-router-dom';
 import './HomePage.css';
 import TicketsList from './TicketsList';
 import axios from 'axios';
+import logo from './logo.jpg';
 
+const Header = () => {
+  const headerStyle = {
+    backgroundColor: '#BA0C2F',
+    color: 'white',
+    textAlign: 'center',
+    padding: '1rem',
+    borderBottomLeftRadius: '10px', // Rounded bottom-left corner
+    borderBottomRightRadius: '10px', // Rounded bottom-right corner
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  };
 
+  const logoStyle = {
+    width: '50px', // Adjust the width of your logo as needed
+    height: 'auto',
+    marginLeft: '10px', // Adjust the margin to position the logo
+  };
+
+  return (
+    <header style={headerStyle}>
+      <h1>MLC Meltdown</h1>
+      <img src={logo} alt="Logo" style={logoStyle} />
+    </header>
+  );
+};
 const HomePage = () => {
     // Initialize state with an empty array
     const [ticketList, setTicketList] = useState([]);
@@ -54,8 +80,17 @@ const HomePage = () => {
           </Link>
         );
       };
+     
+      const Footer = () => (
+        <footer className="footer">
+          <Link to="/">
+            <button className="sign-out">Sign Out</button>
+          </Link>
+        </footer>
+      );
     return (
       <div>
+        <Header/>
       <div className="app">
         {/* <Header title="MLC Meltdown" /> */}
 

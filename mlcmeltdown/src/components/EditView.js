@@ -4,6 +4,8 @@ import axios from 'axios';
 import TicketsList from './TicketsList.js'
 import Ticket from './Ticket.js'
 import { Link } from 'react-router-dom';
+import logo from './logo.jpg';
+
 
 
 const EditView = (props) => {
@@ -123,9 +125,26 @@ const submitHandler = (event) => {
 
   return (
     <div>
-            <header className='formHeader'>
-                Change a reservation
-            </header>
+            <header
+        className='formHeader'
+        style={{
+          backgroundColor: '#BA0C2F',
+          padding: '10px',
+          textAlign: 'center',
+          borderBottomLeftRadius: '10px',
+          borderBottomRightRadius: '10px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <span style={{ marginRight: '10px' }}>Edit a Reservation</span>
+        <img src={logo} alt='Logo' style={{ width: '50px', height: 'auto', marginLeft: '10px' }} />
+        <div style={{ flex: 1 }}></div> {/* This will push the button to the right */}
+        <Link to='/Home-Page'>
+          <button style={{ color: 'white' }}>Back</button>
+        </Link>
+      </header>
         <form onSubmit={submitHandler}>
             <div className='new-ticket_controls'>
                 <div className='new-ticket_control'>
